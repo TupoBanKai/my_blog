@@ -1,0 +1,28 @@
+<h1>Posts</h1>
+
+<%= render 'shared/errors', resource: @post %>
+
+<p><%= link_to 'Create post', new_admin_post_path %></p>
+
+<table class="table">
+    <tr>
+      <th>
+        Posts
+      </th>
+      <th>Comments</th>
+      <th>Actions</th>
+    </tr>
+  <% @posts.each do |post| %>
+    <tr>
+      <td>
+        <%= content_tag :span, post.title, class: 'post-title', data: { post_id: post.id } %>
+      </td>
+      <td><%= post.comments.count %></td>
+
+      <td><%=link_to 'Show', admin_post_path(post) %></td>
+      <td>
+        <%= link_to 'Edit', edit_admin_post_path(post) %>
+      </td>
+  <% end %>
+    </tr>
+</table>
