@@ -1,0 +1,15 @@
+<h2>Title: <%= @post.title %></h2>
+<h2>Body: <%= @post.body %></h2>
+<table class="table">
+  <tr>
+    <th>Comments:</th>
+  </tr>
+  <tr>
+    <% @post.comments.each do |comment| %>
+    <td>
+      <%= comment.body%>
+    </td>
+    <% end %>
+  </tr>
+</table>
+
