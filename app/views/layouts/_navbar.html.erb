@@ -6,13 +6,17 @@
           <%= link_to 'MyBlog', admin_posts_path, class: 'navbar-brand' %>
           <p class="nav user">
           Welcome, admin <b><%= current_user.email %></b> |
-          <%= link_to 'Logout', user_session_path, method: :delete %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
           </p>
           <% else %>
           <%= link_to 'MyBlog', posts_path, class: 'navbar-brand' %>
           <p class="nav user">
           Welcome, <b><%= current_user.email %></b> |
-          <%= link_to 'Logout', user_session_path, method: :delete %>
+          <%= button_to(
+            "Log Out",
+            destroy_user_session_path,
+            method: :delete
+          ) %>
           </p>
           <% end %>
       <% else %>
