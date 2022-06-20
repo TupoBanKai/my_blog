@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div>
+    <%= link_to "MyBlog", admin_posts_path, class: 'navbar-brand' %>
+
+    <div class="nav-admin user">
+      <%= 'Welcome' %> <b><%= current_user.email %></b> Admin
+      <%= button_to 'Logout', destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+</nav>
