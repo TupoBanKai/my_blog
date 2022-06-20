@@ -3,6 +3,11 @@
 <%= render 'shared/errors', resource: @post %>
 
 <table class="table">
+  <tr>
+    <th> <%=link_to 'Asc', posts_path(sort_by: :asc) %> </th>
+    <th> <%=link_to 'Old', posts_path(sort_by: :old) %> </th>
+    <th> <%=link_to 'Popular', posts_path(sort_by: :popular) %> </th>
+  </tr>
     <tr>
       <th>
         Posts
@@ -17,7 +22,6 @@
       <td><%= post.comments.count %></td>
 
       <td><%=link_to 'Show', post_comments_path(post) %></td>
-
   <% end %>
     </tr>
 </table>

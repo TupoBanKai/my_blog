@@ -14,6 +14,14 @@
       <td>
         <%= content_tag :span, comment.body, class: 'comment-body', data: { comment_id: comment.id } %>
       </td>
+      <td>
+        <%= link_to 'Edit', edit_post_comment_path(@post, comment) %>
+      </td>
+      <td>
+        <%=button_to 'Delete',
+        post_comment_path(@post, comment),
+        method: :delete,
+        data: { confirm: 'Are you sure?' } %>
       </td>
   <% end %>
     </tr>

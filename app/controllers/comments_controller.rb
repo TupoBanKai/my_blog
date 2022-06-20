@@ -11,7 +11,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @comment = current_user.comments.create(comment_params)
+    @comment = current_user.comments.new(comment_params)
+    @comment.post = @post
 
     if @comment.save!
       redirect_to posts_path
@@ -26,14 +27,15 @@ class CommentsController < ApplicationController
   end
 
   def update
-    if @comment.update(comemnt_params)
-      redirect_to @post
+    if @comment.update(comment_params)
+      redirect_to posts_path
     else
       render :edit
     end
   end
 
   def edit
+    @post = @comment.post
   end
 
   private
@@ -47,6 +49,6 @@ class CommentsController < ApplicationController
   end
 
   def comment_params
-    params.require(:comment).permit(:body, :post_id)
+    params.require(:comment).permit(:body)
   end
 end

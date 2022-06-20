@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'posts#index'
-
+  
   namespace :admin do
     resources :posts do
       resources :comments
@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   end
 
   resources :posts do
-    resources :comments, shallow: :true
+    resources :comments
   end
 end
